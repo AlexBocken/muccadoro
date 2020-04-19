@@ -1,6 +1,9 @@
 :tomato: Implementation of the [Pomodoro Technique][wikipedia] using [`figlet(6)`][],
 [`cowsay(1)`][], and optionally [`lolcat`][] :cow:
 
+Personal version to work together with dwmblocks display for daily minutes. Also removes
+cowsay during the timer.
+
 ![Screenshot of muccadoro](/../media/screenshot.png?raw=true "MOO!")
 
 [wikipedia]: https://en.wikipedia.org/wiki/Pomodoro_Technique
