@@ -42,7 +42,7 @@ make install
 Put `muccadoro` inside some directory in your `PATH`, e.g. `~/bin/` (or `~/.local/bin/`):
 
 ```bash
-curl -fLo ~/bin/muccadoro https://raw.githubusercontent.com/meribold/muccadoro/master/muccadoro
+curl -fLo ~/bin/muccadoro https://raw.githubusercontent.com/AlexBocken/muccadoro/master/muccadoro
 ```
 
 ### Notes
