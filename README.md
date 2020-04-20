@@ -31,9 +31,11 @@ cowsay during the timer.
 
 ## Installation
 
-### AUR
+adapt the install path in the `Makefile` to your liking and run
+```bash
+make install
+```
 
-Muccadoro is available in the AUR: <https://aur.archlinux.org/packages/muccadoro>.
 
 ### Manual
 
