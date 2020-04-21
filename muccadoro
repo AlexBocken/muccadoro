@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 set -o nounset -o pipefail
 # Before doing anything, check if the required programs are installed.  See
 # <https://stackoverflow.com/q/592620>.  Some of these can probably be reasonably assumed
@@ -10,6 +9,10 @@ for prog in awk cowsay figlet notify-send stty tput; do
       exit 127
    fi
 done
+
+temp_loc=/tmp/pomptemptimes
+
+[ "$2" = 'f' ] && temp_loc=/tmp/pomptemptimesft
 
 declare -i silly=1
 
@@ -59,7 +62,7 @@ cleanup() {
    tput cnorm
    stty "$initial_tty_settings"
    [[ $summary ]] && echo -ne "$summary" >&3
-   rm /tmp/pomtemptimes 2> /dev/null
+   rm $temp_loc 2> /dev/null
 }
 
 trap cleanup EXIT
@@ -257,7 +260,7 @@ for (( n=1; n<=num_pomodoros; ++n )); do
       notify-send "You completed pomodoro $n.  Take a short break (3-5 minutes)."
       #
       #
-      echo "($n*$duration)/60" | bc > /tmp/pomtemptimes
+      echo "($n*$duration)/60" | bc > $temp_loc
       pkill -RTMIN+3 dwmblocks
       # TODO: it may be nice to create this message asynchronously with `lolcat -f` since
       # lolcat is a bit slow.  That's not a priority, though.
