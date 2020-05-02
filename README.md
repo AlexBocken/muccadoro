@@ -25,6 +25,8 @@ cowsay during the timer. See https://github.com/AlexBocken/dotfiles/blob/master/
     breaks ([can be redirected to a file](#saving-summaries-to-a-file)).
 *   Seconds are very slightly longer than customary (subject to the speed of your
     computer; maybe adds 10 seconds to a 25 minute pomodoro).
+*   Two pomodoro timers possible, second one can be used via setting `$2` to `f` (for freetime
+    in this case)
 
 [SIGTSTP]: https://www.gnu.org/software/libc/manual/html_node/Job-Control-Signals
 [SIGINT]: https://www.gnu.org/software/libc/manual/html_node/Termination-Signals
