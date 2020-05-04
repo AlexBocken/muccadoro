@@ -12,7 +12,10 @@ done
 
 temp_loc=/tmp/pomptemptimes
 
-[ "$2" = 'f' ] && temp_loc=/tmp/pomptemptimesft
+freetime=${2:-w}
+if [ "$freetime" = "f" ]; then
+   temp_loc=/tmp/pomptemptimesft
+fi
 
 declare -i silly=1
 
@@ -280,6 +283,7 @@ for (( n=1; n<=num_pomodoros; ++n )); do
    fi
    stty "$tty_settings"
 done
+
 notify-send "You completed all $num_pomodoros pomodoros!"
 
 # vim: tw=90 sts=-1 sw=3 et
