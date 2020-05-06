@@ -27,6 +27,7 @@ cowsay during the timer. See https://github.com/AlexBocken/dotfiles/blob/master/
     computer; maybe adds 10 seconds to a 25 minute pomodoro).
 *   Two pomodoro timers possible, second one can be used via setting `$2` to `f` (for freetime
     in this case)
+*   Easily able to display time in your statusbar
 
 [SIGTSTP]: https://www.gnu.org/software/libc/manual/html_node/Job-Control-Signals
 [SIGINT]: https://www.gnu.org/software/libc/manual/html_node/Termination-Signals
