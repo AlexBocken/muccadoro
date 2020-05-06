@@ -10,7 +10,11 @@ for prog in awk cowsay figlet notify-send stty tput; do
    fi
 done
 
+
 temp_loc=/tmp/pomptemptimes
+temp_timeloc=/tmp/mucc_time
+statusbar="dwmblocks"
+update_signal="3"
 
 freetime=${2:-w}
 if [ "$freetime" = "f" ]; then
@@ -65,7 +69,9 @@ cleanup() {
    tput cnorm
    stty "$initial_tty_settings"
    [[ $summary ]] && echo -ne "$summary" >&3
-   rm $temp_loc 2> /dev/null
+   rm -f $temp_loc
+   rm -f $temp_timeloc
+   pkill -RTMIN+$update_signal $statusbar
 }
 
 trap cleanup EXIT
@@ -207,6 +213,8 @@ pomodoro() {
       if (( ! fail )); then
          pp "$text"
          fail=$?
+         echo "$the_time" > $temp_timeloc
+         pkill -RTMIN+$update_signal $statusbar
          (( fail && fail != 148 )) && return $fail
       elif (( fail != 148 )); then
          return $fail
@@ -243,6 +251,8 @@ for (( n=1; n<=num_pomodoros; ++n )); do
       # Pomodoros are atomic.
       pp "$(cowsay -d -W $(($(tput cols)-3)) 'You abandoned pomodoro '$n'.  Press any' \
          'key to restart it.')"
+      rm -f $temp_timeloc
+      pkill -RTMIN+$update_signal $statusbar
       pause
       (( --n ))
       continue
@@ -264,11 +274,13 @@ for (( n=1; n<=num_pomodoros; ++n )); do
       #
       #
       echo "($n*$duration)/60" | bc > $temp_loc
-      pkill -RTMIN+3 dwmblocks
+      pkill -RTMIN+$update_signal $statusbar
       # TODO: it may be nice to create this message asynchronously with `lolcat -f` since
       # lolcat is a bit slow.  That's not a priority, though.
       ppp "$(cowsay -e '^^' -W $(($(tput cols)-3)) 'You completed pomodoro '$n'.  Take' \
          'a short break (3-5 minutes), then press any key to continue.')"
+      rm -f $temp_timeloc
+      pkill -RTMIN+$update_signal $statusbar
       flush-stdin
       if ! pause 180; then
          pp "$(cowsay -w -W $(($(tput cols)-3)) 'Press any key to continue.')"
