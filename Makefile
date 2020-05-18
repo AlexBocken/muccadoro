@@ -11,10 +11,10 @@ OBJ = $(SRC:.c=.o)
 
 install:
 	mkdir -p $(DESTDIR)$(PREFIX)
-	cp -f muccadoro $(DESTDIR)$(PREFIX)
-	chmod 755 $(DESTDIR)$(PREFIX)/muccadoro
+	cp -f muccadoro pom pomft $(DESTDIR)$(PREFIX)
+	chmod 755 $(DESTDIR)$(PREFIX)/muccadoro $(DESTDIR)$(PREFIX)/pom $(DESTDIR)$(PREFIX)/pomft
 
 uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/muccadoro
+	rm -f $(DESTDIR)$(PREFIX)/muccadoro $(DESTDIR)$(PREFIX)/pom $(DESTDIR)$(PREFIX)/pomft
 
 .PHONY: install uninstall
