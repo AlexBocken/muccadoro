@@ -8,6 +8,6 @@ case $1 in
 		duration="$(( ($end_secs - $start_secs)/60 ))"
 		echo "Pomodoro 1: $start to $end ($duration) $(date '+%Y%b%d')" | tee -ai $SAVE_DIR;;
 	*)      xdotool key super+shift+9
-		muccadoro $1 | tee -ai "$SAVE_DIR"
+		muccadoro $1 | tee -ai "$SAVE_DIR";;
 esac
 pkill -RTMIN+3 dwmblocks
