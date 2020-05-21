@@ -57,6 +57,10 @@ I recommend creating an alias such as
 alias pomo='muccadoro | tee -ai ~/pomodoros.txt'
 ```
 
+This has been implemented in the two executable scripts `pom` and `pomft`. You can adjust
+the saving location for those logs in those scripts if you want to use them. (By default
+they can be found at `~/.local/bin`.)
+
 See "[Saving summaries to a file](#saving-summaries-to-a-file)" for details.
 
 ## Usage notes
@@ -64,6 +68,13 @@ See "[Saving summaries to a file](#saving-summaries-to-a-file)" for details.
 The first positional argument is the amount of minutes one pomodoro should take (default:
 25).  If you want 20-minute pomodoros, use `muccadoro 20`, for example.  The program exits
 after four pomodoros have been completed and a longer break should be taken.
+
+If two positional arguments are given, if the second argument is `f` it executes the
+script as a productive free time pomodoro. This results in a different tempfile if you
+want to display your cummuluative time for finished pomodoros before everything get's
+saved to the specified log file. See my `getpomminutes` and `getpomftminutes` in
+[dotfiles](https://github.com/AlexBocken/dotfiles) if you want to understand the
+usefulness of this second flag further.
 
 ### Saving summaries to a file
 
