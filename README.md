@@ -2,7 +2,11 @@
 [`cowsay(1)`][], and optionally [`lolcat`][] :cow:
 
 Personal version to work together with dwmblocks display for daily minutes. Also removes
-cowsay during the timer. See https://github.com/AlexBocken/dotfiles/blob/master/.local/bin/statusbar/getpomminutes for my bodged implementation of this statusbar feature. (It's ugly, I know)
+cowsay during the timer. See
+https://github.com/AlexBocken/dotfiles/blob/master/.local/bin/statusbar/getpomminutes for
+my bodged implementation of this statusbar feature. (It's ugly, I know)
+If you want to use this script for yourself I recommend using the original author's
+version as mine is quite specific to my use case.
 
 ![Screenshot of muccadoro](/../media/screenshot.png?raw=true "MOO!")
 
